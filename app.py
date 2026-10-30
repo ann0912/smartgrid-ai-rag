@@ -68,5 +68,9 @@ if question := st.chat_input('Pregunta sobre Smart Grids y gestión energética.
                     st.write(f'Fragmento {c.get("id", "?")} | score: {c.get("score", 0):.5f}')
                     st.write(c['texto'])
             st.session_state.messages.append({'role':'assistant','content':response,'chunks':chunks})
+
         except Exception:
-            st.error('Ocurrió un error de consulta. Verifica el índice READY, la conexión y las cuotas de Gemini.')
+            import logging
+            logging.exception("Error durante la consulta RAG")
+            st.error("No se pudo completar la consulta. Revisa los registros de la aplicación.")
+
