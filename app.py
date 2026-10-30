@@ -39,7 +39,8 @@ def answer(question, chunks):
 Responde en español usando EXCLUSIVAMENTE el CONTEXTO proporcionado. Si la respuesta no está sustentada en el contexto, indica: "No encuentro información suficiente en el documento para responder esa pregunta". No inventes datos ni fuentes. Sé claro y menciona los números de fragmentos que sustentan la respuesta cuando corresponda.
 
 CONTEXTO:\n{context}\n\nPREGUNTA: {question}'''
-    result = ai.models.generate_content(model='gemini-2.5-flash', contents=prompt)
+    result = ai.models.generate_content(model='gemini-3.8-flash', contents=prompt)
+
     return result.text or 'No se generó una respuesta.'
 
 if 'messages' not in st.session_state:
